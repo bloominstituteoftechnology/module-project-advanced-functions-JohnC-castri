@@ -27,9 +27,12 @@
     // 🧠 Examples of usage:
     // processSingleLearner({ name: "Elisabeth", lovesJS: 1 }) // should return { name: "Elisabeth", lovesJS: true }
     // processSingleLearner({ name: "Pete", age: 23, lovesJS: 0 }) // should return { name: "Pete", age: 23, lovesJS: false }
-    const processSingleLearner = () => {
-
-    }
+    const processSingleLearner = (learnerA) => {
+      if (learnerA.lovesJS !== undefined) {
+    learnerA.lovesJS = learnerA.lovesJS === 1;
+  }
+  return learnerA;
+};
 
     // 👉 CHALLENGE 2
     // 🧠 The function processLearnerLoop takes an array of learner objects as its argument, and returns it after some modifications.
@@ -41,8 +44,14 @@
     // ❗ Notes:
     // 🧠 There are many approaches to this problem: using a loop, using forEach, using map...
     // 🧠 Solve this challenge using a for/in loop or a for loop.
-    const processLearnersLoop = () => {
-
+    const processLearnersLoop = (learnersA) => {
+      for (let index = 0; index < learnersA.length; index++) {
+        const learn = learnersA[index];
+        if (learn.lovesJS !== undefined) {
+          learn.lovesJS = learn.lovesJS === 1;
+        }
+      }
+    return learnersA
     }
 
     // 👉 CHALLENGE 3
@@ -51,9 +60,18 @@
     // ❗ Notes:
     // 🧠 Solve this challenge using the forEach method of the learners array.
     // 🧠 Use arrow functions whenever possible.
-    const processLearnerForEach = () => {
-
+    const processLearnerForEach = (learnersA) => {
+      learnersA.forEach((learn) => {
+    // Check if the "lovesJS" property is not undefined
+    if (learn.lovesJS !== undefined) {
+      // Update the value based on the condition
+      learn.lovesJS = learn.lovesJS === 1;
     }
+  });
+
+  // Return the modified array of learner objects
+  return learnersA;
+};
 
     // 👉 CHALLENGE 4
     // 🧠 The function processLearnerMap takes an array of learner objects as its argument, and returns a new array.
@@ -61,8 +79,14 @@
     // ❗ Notes:
     // 🧠 Solve this challenge using the map method of the learners array.
     // 🧠 Use arrow functions.
-    const processLearnerMap = () => {
-
+    const processLearnerMap = (learnersA) => {
+      const modified = learnersA.map((learn) => {
+        if (learn.lovesJS !== undefined) {
+          learn.lovesJS = learn.lovesJS === 1;
+        }
+      return learn;
+      });
+    return modified;
     }
 
     // 👉 CHALLENGE 5
