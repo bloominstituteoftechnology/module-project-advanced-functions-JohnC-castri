@@ -127,16 +127,12 @@
     // 🧠 Solve this challenge using the filter method of the learners array.
     const getJavaScriptLoversFilter = (learnersA) => {
       const jsLoversArray = learnersA.filter((learner) => {
-    // Check if the "lovesJS" property is truthy (either true or 1)
     return learner.lovesJS;
   });
 
-  // Check if there are JavaScript lovers
   if (jsLoversArray.length > 0) {
-    // Return the array of JavaScript lovers
     return jsLoversArray;
   } else {
-    // Return the string if there are no JavaScript lovers
     return "no JS lovers here!";
   }
 };
@@ -153,8 +149,18 @@
     // ❗ Notes:
     // 🧠 This could be solved by using filter to make an array of odd integers, and then using forEach to add them up.
     // 🧠 Or you could opt for solving everything with a single forEach which is the recommended approach (saves a loop).
-    const sumOddInts = () => {
+    const sumOddInts = (intA) => {
+      let sum = 0;
+  const oddIntegersArray = [];
 
+  intA.forEach((int) => {
+    if (int % 2 !== 0) {
+      sum += int;
+      oddIntegersArray.push(int);
+    }
+  });
+
+  return [sum, oddIntegersArray];
     }
 
     // 👉 CHALLENGE 8
@@ -168,8 +174,19 @@
     // checkInts(2, 6) // should return ["even", "even"]
     // ❗ Notes:
     // 🧠 Solve this problem using rest parameters and map.
-    const checkInts = () => {
+    const checkInts = (...argue) => {
+      if (argue.length === 0) {
+    return "pass some arguments, yo!";
+  }
 
+  const resultArray = argue.map((integer) => {
+  if (integer % 2 === 0) {
+    return 'even';
+  } else {
+    return 'odd';
+  }
+});
+return resultArray;
     }
 
     // 🧪 TESTS, do not work below this line
